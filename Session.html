@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>PrePrompt: JQuery</title>
+</head>
+<body>
+
+    <section>
+        <h1>Apresentação</h1>
+        <ul>
+            <li><strong>Sessão:</strong> Devenvolvimento de Aplicações Web com jQuery</li>
+            <li><strong>Data:</strong> 10/Fev/2011, 17h-22h30m</li>
+            <li><strong>Anfitriões:</strong> Carlos Guedes e Paulo Pereira</li>
+        </ul>
+    </section>
+
+    <section>
+        <h1>Referências</h1>
+        <h2>Bibliografia</h2>
+		<ul id="books">
+			<li id="jQueryBook">jQuery in Action - 2nd edition</li>
+			<li id="NinjaBook">Secrets of the JavaScript Ninja</li>
+		</ul>
+        <h2> Links úteis </h2>
+        <ul>
+            <li class="JavaScript"> JavaScript
+                <ul>
+                    <li><a href="http://ejohn.org/apps/learn/">Learning Advanced JavaScript</a></li>
+                </ul>
+            </li>
+            <li class="jQuery"> jQuery
+                <ul>
+                    <li class="jQueryAPI"> API
+                        <ul>
+                            <li><a href="http://jquery.com/">jQuery "write less, do more."</a></li>
+                            <li><a href="http://www.futurecolors.ru/jquery/">jQuery 1.5 API Cheat Sheet</a></li>
+                        </ul>
+                    </li>
+                    <li class="jQuerySourceViewers"> jQuery Source Code viewers
+                        <ul>
+                            <li><a href="http://www.keyframesandcode.com/resources/javascript/deconstructed/jquery/">JS Libs Deconstructed</a></li>
+                            <li><a href="http://james.padolsey.com/jquery/">jQuery source viewer</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <h2>Utilitários</h2>
+        <ul>
+            <li><a href="http://jsfiddle.net/">JsFiddle: a playground for web developers</a></li>
+        </ul>
+    </section>
+
+    <section>
+        <h1>Pré-requisitos</h1>
+        <h2>Exercício: Etapa 0 (<a href="Solved/Etapa0_Solved.html">Soluções</a>)</h2>
+        
+        <p> Admita a existência do documento HTML apresentado na figura seguinte. No elemento documento está definido, em JavaScript, 
+        um <em>array</em> de objectos que representam clubes de futebol. Cada objecto inclui o nome do clube de futebol em causa 
+        (propriedade <code>nome</code>) e a caracterização do respectivo estádio (propriedade <code>stadium</code>). A caracterização
+        do estádio é realizada através de objectos que contêm o nome do estádio e a sua capacidade (propriedades <code>name</code> e 
+        <code>capacity</code>, respectivamente.</p>
+        
+        <iframe style="width: 99%; height: 375px" src="http://jsfiddle.net/cguedes/ajHK7/embedded/html,result/"></iframe>
+        
+        <p>Através de troços de código em JavaScript, acrescente as seguintes funcionalidades ao documento ilustrado:</p>
+        <ol> 
+            
+            <li> Escreva o troço de código que apresenta a informação relativa a cada um dos clubes contidos no <em>array</em> 
+            <code>clubs</code>. Realize a apresentação da informação através da função <code>alert(someString)</code> ou, em alternativa,
+            através da função <code> console.log(someString)</code>. </li>
+            
+            <li>Por cada elemento do <em>array</em> <code>clubs</code>, acrescente à lista dos descendentes imediatos de 
+            <code> &lt;div id="divclubs"&gt; </code>, um <code>div</code> contendo o nome do clube e o nome do seu estádio.
+            <br /><strong>Nota:</strong> Caso pretenda, acresente as regras de estilo CSS necessárias a melhorar o aspecto da interface gerada.
+            </li>
+            <li> Acrescente à interface anterior suporte para, quando premido o rato na área correspondente à informação de determinado 
+            clube, seja apresentado o número de lugares no estádio desse clube.
+            </li>
+            <li> Implemente a função <code>each(arr, action)</code> que aplica a função <code>action</code> a cada elemento de <code>arr</code>.
+            A função <code>action</code> recebe três parâmetros, nomeadamente: o índice do elemento no <em>array</em> <code>arr</code>, o elemento 
+            e o <em>array</em>.<br /><strong>Exemplo de utilização:</strong> 
+            <code>each(clubs, function(i, elem, arr) { /* action implementation */ }</code>.
+            </li>
+            <li> 
+                <strong>(*)</strong> Implemente as funções <code>select</code>, <code>where</code> e <code>each</code>, de forma viabilizar a seguinte utilização:
+                <pre>
+                clubs
+                  .select(function() { return this.stadium })
+                  .where(function() { return this.capacity > 60000 })
+                  .each(function() { console.log(this.name); });</pre>
+                <em><strong>*</strong> A implementação desta alínea é facultativa.</em>
+            </li>
+        </ol>
+    </section>
+
+
+</body>
+</html>
