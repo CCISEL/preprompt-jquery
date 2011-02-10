@@ -2,6 +2,87 @@
 <html>
 <head>
     <title>PrePrompt: JQuery</title>
+    <link rel="stylesheet" type="text/css" href="session.css" />
+    <script type="text/javascript" src="./Scripts/jquery-1.4.1.js">
+        /// <reference path="./Scripts/jquery-1.4.1.js" />
+    </script>
+    <script type="text/javascript">
+        // Setting hyperlinks' common properties
+        $(function () {
+            $("a[href^='http://']")
+                .attr("target", "_blank")
+                .not("[href*='jsfiddle.net']")
+                .after(function () {
+                    return "<code> [" + $(this).attr("href") + "]</code>"
+            });
+        });
+		
+		// Set up animation
+		$(function() {
+			$("#books").children("li").click(function(event) {
+				$(this).addClass('selected').siblings("li").removeClass('selected');
+				var vMargin = 50;
+				var imgHeight = $(window).height()-vMargin*2;
+				var imgWidth = imgHeight/1.3; // Maintain aspect ratio
+				var hMargin = ($(window).width()-imgWidth)/2;
+				var this$ = $(this);
+				$("#CoverPlaceHolder")
+					.empty()
+					.css({
+						top: $(window).height()/2,
+						left: $(window).width()/2,
+						right: $(window).width()/2+1,
+						bottom: $(window).height()/2+1
+					})
+					.show()
+					.animate({
+						top: vMargin,
+						left: hMargin,
+						bottom: vMargin,
+						right: hMargin
+					}, 'slow', function() {
+						$("<img src='./Images/" + $(event.currentTarget).attr('id') + ".jpg' />")
+						.css({ width:'100%', height: '100%'})
+						.appendTo($(this));
+				})
+				.click(function(event) { 
+					$(this).hide().empty();
+					this$.removeClass('selected');
+				});
+			})
+			.end()
+			.after("<div id='CoverPlaceHolder'></div>");
+		});
+
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="toc.css" />
+    <script type="text/javascript" src="./toc.js"></script>
+    <script type="text/javascript">
+        // Add a simple TOC to the page
+        $(function () {
+            $("section > h1").toc();
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        // Collapse sections
+        function activateCollapse()
+        {
+            $("section > h1").click(function() {
+                $(this).parent().children().not(this).toggle();
+                //$(this).siblings().toggle();
+            });
+
+            // Hide all sections
+            $("section").children().not("h1").fadeOut();
+        }
+
+        $(function () {
+            //activateCollapse();
+        });
+    </script>
 </head>
 <body>
 
@@ -94,6 +175,87 @@
         </ol>
     </section>
 
+    <section>
+        <h1>jQuery: Introdução</h1>
+
+        <h2>Aspectos avançados de JavaScript</h2>
+        <ul>
+            <li>prototypes</li><li>closures</li> <li>call-context</li>
+        </ul>
+        <p>
+            <a href="http://jsfiddle.net/palbp/7S88x/"> JavaScript Demo (Start)</a> /
+            <a href="http://jsfiddle.net/palbp/884rK/"> JavaScript Demo (Complete)</a> (Resolução da Etapa 0, Alínea 5.)
+        </p>
+        
+        <h2>Exercício: Etapa 1 (<a href="Solved/Etapa1_Solved.html">Solução</a>)</h2>
+        <ol>
+            <li>
+                Implemente as função <code>bindToContext</code> de forma a viabilizar a seguinte utilização:
+                <iframe style="width: 99%; height: 310px" src="http://jsfiddle.net/cguedes/HxXgh/embedded/js,result/"></iframe>
+            </li>
+            <li>Acrescente à solução anterior o suporte necessário para que, cada chamada a <code>console.log</code>, para além 
+            de produzir a escrita na consola, acrescente ao final do documento HTML um <code>div</code> contendo a string recebida como parâmetro.</li>
+        </ol>
+        
+        <h2>O modelo de programação jQuery</h2>
+        <ul>
+            <li>Wrapped element set: selecção, navegação e manipulação.</li>
+            <li>Modelo de eventos.</li>
+        </ul>
+        <p>
+            <a href="http://jsfiddle.net/palbp/7S88x/"> jQuery: Demo 1 (Start)</a> :
+            <a href="http://jsfiddle.net/palbp/884rK/"> (Complete)</a> (Script da página actual)
+        </p>
+		<p> 
+            <a href=""> jQuery: Demo 2 (Start)</a> :
+            <a href=""> (Complete)</a> (Modelo de eventos ilustrando event bubbling)
+			<!--<p style="background-color:red; color:white"><b>Por fazer...</p>-->
+        </p>
+		
+        <h2>Exercício: Etapa 2 (<a href="Solved/Etapa2_Solved.html">Solução</a>)</h2>
+        <ol>
+            <li>Implemente, usando jQuery, as funcionalidades das alíneas 2 e 3 do exercício da etapa 0.</li>
+        </ol>
+    </section>
+
+    <section>
+		<h1>jQuery: Animações</h1>
+        <h2>Animações existentes</h2>
+		<p> 
+            <a href=""> jQuery: Demo 3 (Start)</a> :
+            <a href=""> (Complete)</a> (Brincando com jsFiddle)
+			<!--<p style="background-color:red; color:white"><b>Por fazer...</p>-->
+        </p>
+
+		<h2>Animações personalizadas</h2>
+        <ul>
+            <li>função <code>animate</code>.</li>
+			<li>As queues de animação (fx).</li>
+        </ul>
+		<p> 
+            <a href=""> jQuery: Demo 4 (Start)</a> :
+            <a href=""> (Complete)</a> (Script desta página)
+        </p>
+    </section>
+
+    <section>
+		<h1>jQuery: Anatomia de extensões</h1>
+        <ul>
+            <li>poluição do espaço de nomes global</li>
+            <li>opções e valores por omissão</li>
+        </ul>
+        
+        <h2>Estrutura típica de uma extensão jQuery</h2>
+        <iframe style="width: 99%; height: 500px" src="http://jsfiddle.net/cguedes/UBw6H/embedded/js,result/"></iframe>
+
+    </section>
+
+<!--
+    <section>
+        <h1>jQuery: Suporte AJAX</h1>
+        <p style="background-color:red; color:white"><b>Por fazer... (Não sei se vale a pena. É trivial!) </p>
+    </section>
+-->
 
 </body>
 </html>

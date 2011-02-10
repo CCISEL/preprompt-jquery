@@ -1,0 +1,25 @@
+﻿.toc
+{
+    top: 5px;
+    right: 5px;
+    position: fixed;
+    display: inline-block;
+    width: 200px;
+    border: 2px solid #3E3E3E;
+    background-color: #E3E3E3;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.toc div.title { 
+	font-size: 20px;
+	font-weight: bold;
+}
+
+a.toc-para
+{
+    font-size:14px;
+    margin-left:5px;
+    color: gray;
+    text-decoration:none;
+}

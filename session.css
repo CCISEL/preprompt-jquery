@@ -1,0 +1,46 @@
+﻿body { 
+    line-height:1.4em;
+}
+
+section
+{
+    border: 1px solid #AFAFAF;
+    border-bottom: 2px solid #AFAFAF;
+    border-right: 2px solid #AFAFAF;
+    background-color: #FDFDFD;
+    padding: 5px;
+    margin-bottom:15px;
+}
+
+section h1 
+{ 
+    margin:0;
+    padding-top:6px;
+    padding-bottom:6px;
+    background-color: #FAFAFA;
+    border-bottom: 1px solid #E1E1E1;
+}
+
+ol li 
+{ 
+    margin-bottom: 1em;
+}
+
+#CoverPlaceHolder 
+{
+    display: none;
+    border: 1px solid grey;
+    background-color: lightgrey;
+    position: fixed;
+	cursor: pointer;
+}
+
+#books li 
+{
+	cursor: pointer;
+}
+
+#books li.selected
+{
+	background-color: lightgrey;
+}
